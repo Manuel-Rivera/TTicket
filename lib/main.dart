@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/home_screen.dart';
 import 'package:intl/intl.dart';
 
 void main() => runApp(const MyApp());
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: "TTicket"),
+      home:const HomeScreen()
+      //home: const MyHomePage(title: "TTicket"),
     );
   }
 }

@@ -11,9 +11,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //leading:const Icon(Icons.account_circle_rounded),
+        leading:const Icon(Icons.account_circle_rounded),
         title: const Text("Home TTicket"),
-      ),drawer: Drawer(
+      ),
+      endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -31,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             ListTile(
+              leading:const Icon(Icons.home_outlined),
               title: const Text('Item 2'),
               onTap: () {
                 // Update the state of the app.

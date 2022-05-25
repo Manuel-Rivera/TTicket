@@ -1,7 +1,11 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home_screen.dart';
+import 'package:flutter_application_1/f_datetimegetpicker.dart';
+//rt 'package:flutter_application_1/home_screen.dart';
 import 'package:intl/intl.dart';
+
 
 void main() => runApp(const MyApp());
 
@@ -15,8 +19,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home:const HomeScreen()
-      //home: const MyHomePage(title: "TTicket"),
+      //home:const HomeScreen()
+      home: const MyHomePage(title: "TTicket"),
     );
   }
 }
@@ -55,11 +59,27 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontWeight: FontWeight.bold)),
                 ElevatedButton(
                     onPressed: () {
-                      showDialog(
+                      DateTimeRangePicker(
+                    startText: "From",
+                    endText: "To",
+                    doneText: "Yes",
+                    cancelText: "Cancel",
+                    interval: 5,
+                    initialStartTime: DateTime.now(),
+                    initialEndTime: DateTime.now().add(const Duration(days: 20)),
+                    mode: DateTimeRangePickerMode.dateAndTime,
+                    minimumTime: DateTime.now().subtract(const Duration(days: 5)),
+                    maximumTime: DateTime.now().add(const Duration(days: 25)),
+                    use24hFormat: true,
+                    onConfirm: (start,end) {
+                      print(start);
+                      print(end);
+                    }).showPicker(context);
+                      /*showDialog(
                         context: context,
                         builder: (BuildContext context) =>
                             _buildPopupDialog(context),
-                      );
+                      );*/
                     },
                     child: const Text("Edit"))
               ])
@@ -72,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
   }
 
+  // ignore: unused_element
   Widget _buildPopupDialog(BuildContext context) {
     final options = <String>[
       'Hallo',

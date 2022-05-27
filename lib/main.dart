@@ -1,11 +1,11 @@
 // ignore_for_file: avoid_print
 
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/f_datetimegetpicker.dart';
+//import 'package:flutter_application_1/f_datetimegetpicker.dart';
 //rt 'package:flutter_application_1/home_screen.dart';
 import 'package:intl/intl.dart';
-
 
 void main() => runApp(const MyApp());
 
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontWeight: FontWeight.bold)),
                 ElevatedButton(
                     onPressed: () {
-                      DateTimeRangePicker(
+                      /*  DateTimeRangePicker(
                     startText: "From",
                     endText: "To",
                     doneText: "Yes",
@@ -74,12 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     onConfirm: (start,end) {
                       print(start);
                       print(end);
-                    }).showPicker(context);
-                      /*showDialog(
+                    }).showPicker(context);*/
+                      showDialog(
                         context: context,
                         builder: (BuildContext context) =>
                             _buildPopupDialog(context),
-                      );*/
+                      );
                     },
                     child: const Text("Edit"))
               ])
@@ -92,7 +92,6 @@ class _MyHomePageState extends State<MyHomePage> {
         );
   }
 
-  // ignore: unused_element
   Widget _buildPopupDialog(BuildContext context) {
     final options = <String>[
       'Hallo',
@@ -104,21 +103,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return AlertDialog(
       title: const Text('Popup example'),
-
-      content:
-      // ListView(
+      content: CupertinoDatePicker(
+        mode: CupertinoDatePickerMode.time,
+        initialDateTime: DateTime.now(),
+        onDateTimeChanged: (DateTime newDateTime) {
+        setState(() {
+          print(newDateTime);
+        });
+      }),
+      /* ListView(
       //  children: [
       //    ...options.map((e) => Text(e)),
       //  ], 
-      // ),
-       Column(
+       ),*/
+      /*Column(
          mainAxisSize: MainAxisSize.min,
          crossAxisAlignment: CrossAxisAlignment.start,
          children: <Widget>[
            //const Text("Hallo"),
            ...options.map((game) => Text(game))
          ],
-       ),
+       ),*/
       actions: <Widget>[
         ElevatedButton(
             onPressed: (() => Navigator.of(context).pop()),

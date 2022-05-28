@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter_application_1/f_datetimegetpicker.dart';
-//rt 'package:flutter_application_1/home_screen.dart';
+import 'package:flutter_application_1/home_screen.dart';
 import 'package:intl/intl.dart';
 
 void main() => runApp(const MyApp());
@@ -15,12 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Time Demo',
+      title: 'TTicket',
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      //home:const HomeScreen()
-      home: const MyHomePage(title: "TTicket"),
+      home:const HomeScreen()
+      //home: const MyHomePage(title: "TTicket"),
     );
   }
 }
